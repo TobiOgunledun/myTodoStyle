@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TO-DO LIST</title>
+	<link rel="stylesheet" href="file:///C:/Users/User/Desktop/iTins/icons/fontawesome-free-6.1.1-web/css/all.css">
+
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<section class="section" id="section">
+		
+		<div class="container" id="container">
+
+<!-- 			<h1 id="date">Date: <span id="dateInput"></span></h1>
+ -->		
+
+			 <header>
+				<h1>To Do List <br> This Week</h1>
+
+		 		<button id="task">Add a task <i class="fas fa-plus"></i></button>
+		 	</header>
+
+		 	<aside id="myForms">
+		 		<form>
+		 		<input type="text" name="Item Name" id="input" placeholder="Your New Item Goes Here">
+		 		<input type="submit" name="" value="Throw into Todo" id="submitBtn">
+		 		<br>
+		 	</form>
+
+		 	<button onclick="doneBtn()" > Done!</button>
+		 	</aside>
+
+		 	
+
+		 	<div class="todoDiv">
+		 		<ul class="todoList" id="todoList">
+		 			
+		 		</ul>
+		 	</div>
+ 		
+ 	
+
+		</div>
+
+	</section>
+
+
+
+	<script type="text/javascript">
+
+		const todoInput = document.getElementById("input");
+		const showTodo = document.getElementById("task");
+		const myForms = document.getElementById("myForms");
+		const submitBtn = document.getElementById("submitBtn");
+		const todoList = document.getElementById("todoList");
+		const mySection = document.getElementsByTagName("body")[0];
+
+
+
+
+		showTodo.addEventListener("click", showForm);
+		submitBtn.addEventListener("click", showTodoList);
+		todoList.addEventListener("click", showHide);
+
+
+
+		function showForm(){
+			myForms.style.display = "block";
+			// myForms.style.transform = "scale(1)";
+		}
+		function showTodoList(event) {
+			event.preventDefault();
+			console.log("Hello World")
+
+			const newTodoItem = document.createElement('div');
+			newTodoItem.classList.add("todoItems");
+
+			const todoItem = document.createElement('li');
+			todoItem.innerHTML = todoInput.value;
+			todoItem.classList.add('todoItem');
+			newTodoItem.appendChild(todoItem);
+
+			const checked = document.createElement('button');
+			checked.classList.add('icon');
+			checked.innerHTML = '<i class="fas fa-check"></i>';
+			newTodoItem.appendChild(checked);
+
+			const trash = document.createElement('button');
+			trash.classList.add('trash');
+			trash.innerHTML = '<i class="fas fa-trash"></i>';
+			newTodoItem.appendChild(trash);
+
+			
+
+
+			todoList.appendChild(newTodoItem);
+			
+
+			todoInput.value = " ";
+		}
+
+		function showHide(e){
+			console.log(e.target);
+			let item = e.target;
+			if(item.classList[0] === "trash"){
+				console.log("I am Trash");
+				item.parentElement.classList.add('complete');
+				
+			}
+			if(item.classList[0] === "icon"){
+				console.log("I am Fulfilled");
+				item.parentElement.classList.toggle('clicked');
+				item.classList.add("checked")
+			}
+		}
+
+
+
+		// const myDate = document.getElementById("date");
+		// const enterDate = document.getElementById("dateInput");
+		// dayNames = ['Sunday', 'Monday', 'Tuesday','Wednessday','Thursday','Friday','Saturday'];
+
+		// let newDate = new Date();
+		// console.log(newDate);
+		// enterDate.innerHTML = `${dayNames[newDate.getDay()] + " " + newDate.toLocaleTimeString()}`;
+
+		window.onclick = function(e){
+			let close = e.target;
+			if(close === mySection){
+				myForms.style.display = "none";
+			}
+		}
+		function doneBtn(){
+			console.log("Hiiii :)")
+			myForms.style.display = "none";
+		}
+
+	</script>
+</body>
+</html>

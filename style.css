@@ -1,0 +1,136 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	width: 100vw;
+	min-height: 100vh;
+	overflow-x: hidden;
+	background: #bddeef;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1em 0;
+}
+section{
+	text-align: center;
+	background: #fff;
+	width: 70%;
+	padding: 1em;
+	border-radius: 1em;
+	outline: hidden;
+}
+button{
+	cursor: pointer;
+	padding: .5em .8em;
+	border-radius:.5em;
+	border: none;
+	font-size: 1em;
+	transition: all .3s ease-in-out;
+}
+i{
+	pointer-events: none;
+	margin-left: .5em;
+}
+input{
+	border: none;
+	padding: .5em .8em;
+	font-size: 1.1em;
+	margin:.3em;
+	border-radius: .5em;
+}
+input[type=text]{
+	background: azure;
+}
+input[type=submit]{
+	cursor: pointer;
+	transition: all .3s ease-in-out;
+}
+input[type=submit]:hover, header button:hover{
+	background: orange;
+	color:  white;
+}
+aside button{
+	background: orange;
+	color:  white;
+	margin-top: .5em;
+}
+header{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items:  flex-end;
+	margin: 1em auto;
+}
+header h1{
+	color: orange;
+	font-weight: 900;
+	font-family: sans-serif;
+}
+#myForms{
+	margin: 1em auto;
+	display: none;
+	/*transform: scale(0);
+	transition: all .5s ease-in-out;*/
+}
+
+
+.todoList{
+	padding: 1em;
+	list-style: none;
+	width: 90%;
+	margin: .3em auto;
+}
+.todoItems{
+	width:  100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin: .5em 0;
+	background: orange;
+	color: white;
+	border-radius: .5em;
+}
+.todoItem{
+	flex: 1;
+	font-size: 1.1em;
+	text-transform: capitalize;
+	/*color: rebeccapurple;*/
+	text-align: left;
+	font-weight: 700;
+	font-family: sans-serif;
+	/*background: azure;*/
+	padding: .5em;
+}
+.icon, .trash{
+	font-size: 1.1em;
+	/*background: green;*/
+	text-align: center;
+	padding: .5em;
+	border-radius: 0;
+	margin-left: .1em;
+	transition: all .1s ease-in-out;
+	background: transparent;
+	color: white;
+}
+.trash:hover, .trashColor {
+	color: red;
+}
+.clicked{
+	background: lightgray;
+	text-decoration: line-through;
+	color:  black;
+	opacity: .5;
+	transition: all .5s ease-in;
+}
+.checked{
+	color:  green;
+}
+.complete{
+	display: none;
+}
+/*@media and screen(min-width: 800px){
+	section{
+		width: 40%;
+	}
+}*/
